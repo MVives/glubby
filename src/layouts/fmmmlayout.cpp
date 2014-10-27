@@ -48,10 +48,10 @@ bool FMMMLayout::layout(ogdf::GraphAttributes * GA)
 {
     ogdf::FMMMLayout fmmm;
 
-    fmmm.useHighLevelOptions(true);
-    fmmm.unitEdgeLength(50.0);
-    fmmm.newInitialPlacement(true);
-    fmmm.qualityVersusSpeed(ogdf::FMMMLayout::qvsGorgeousAndEfficient);
+    fmmm.useHighLevelOptions(_useHighLevelOptions);
+    fmmm.unitEdgeLength(_unitEdgeLength);
+    fmmm.newInitialPlacement(_newInitialPlacement);
+    fmmm.qualityVersusSpeed(_qualityVsSpeed);
 
     fmmm.call(*GA);
 
@@ -63,7 +63,7 @@ void FMMMLayout::readSettings(void)
     QSettings settings;
     settings.beginGroup(metaObject()->className());
     _useHighLevelOptions = settings.value("useHighLevelOptions", _useHighLevelOptions).toBool();
-    _unitEdgeLength = settings.value("_unitEdgeLength", _unitEdgeLength).toDouble();
+    _unitEdgeLength = settings.value("unitEdgeLength", _unitEdgeLength).toDouble();
     _newInitialPlacement = settings.value("newInitialPlacement", _newInitialPlacement).toBool();
     QString qualityVsSpeedString = settings.value("qualityVsSpeed", _qualityVsSpeedHash.key(_qualityVsSpeed)).toString();
     _qualityVsSpeed = _qualityVsSpeedHash[qualityVsSpeedString];
