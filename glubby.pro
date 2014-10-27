@@ -14,8 +14,8 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-LIBS += -L/usr/local/lib -lOGDF -lCOIN
-INCLUDEPATH += ./src
+LIBS += -L/usr/local/lib -L/home/manuel/Devel/ng2/cots/ogdf/_release/ -lOGDF -lCOIN
+INCLUDEPATH += ./src /home/manuel/Devel/ng2/cots/ogdf/include
 
 OBJECTS_DIR = .o
 MOC_DIR = .moc
